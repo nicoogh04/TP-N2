@@ -6,6 +6,22 @@ public class Producto {
     private double precio;
     private int stock;
 
+    public void setPrecio(double precio) {
+    if (precio >= 0) {
+        this.precio = precio;
+    } else {
+        System.out.println("El precio no puede ser negativo.");
+    }
+}
+
+    public void setStock(int stock) {
+        if (stock >= 0) {
+            this.stock = stock;
+        } else {
+            System.out.println("El stock no puede ser negativo.");
+        }
+    }
+
     // Constructor: inicializa los valores del producto cuando se crea un objeto.
     public Producto(String nombre, double precio, int stock) {
         this.nombre = nombre; // Asigna el nombre recibido al atributo nombre.

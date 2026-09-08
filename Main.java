@@ -54,8 +54,18 @@ public class Main extends JFrame {
     private void registrarProducto() {
         String nombre = txtNombre.getText(); // Obtiene el nombre escrito por el usuario.
         double precio = Double.parseDouble(txtPrecio.getText()); // Convierte el texto del precio a double.
-        int stock = Integer.parseInt(txtStock.getText()); // Convierte el texto del stock a int.
+        
+        if (precio < 0) {
+            txtResultado.setText("Error: El precio no puede ser negativo.");
+            return; // Sale del método si el precio es negativo.
+        }
 
+        int stock = Integer.parseInt(txtStock.getText()); // Convierte el texto del stock a int.
+        if (stock < 0) {
+            txtResultado.setText("Error: El stock no puede ser negativo.");
+            return; // Sale del método si el stock es negativo.
+        }
+        
         Producto producto = new Producto(nombre, precio, stock); // Crea un producto con los datos ingresados.
         txtResultado.setText(producto.mostrarInformacion()); // Muestra la información del producto en el área de texto.
     }
